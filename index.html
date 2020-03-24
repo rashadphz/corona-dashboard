@@ -27,16 +27,17 @@
             console.log(dataObj)
             let statsTable = document.getElementById('statsTable')
 
-            for (country in dataObj){
+            for (id in dataObj){
 
-                confirmed = dataObj[country].confirmed
-                deaths = dataObj[country].deaths
-                recovered = dataObj[country].recovered
+                country_name = dataObj[id].country
+                confirmed = dataObj[id].confirmed
+                deaths = dataObj[id].deaths
+                recovered = dataObj[id].recovered
 
                 const row = statsTable.insertRow();
 
                 const cell1 = row.insertCell(0);
-                cell1.innerHTML = country
+                cell1.innerHTML = country_name
 
                 const cell2 = row.insertCell(1);
                 cell2.innerHTML = confirmed
@@ -56,26 +57,32 @@
             const data = await response.json();
             
             //start with global data
-            const dataObj = {
-                Global : {
+            const dataObj = [
+                {
+                country: "Global",
                 confirmed : data.latest.confirmed,
                 deaths : data.latest.deaths,
                 recovered: data.latest.recovered
                 }
-            }
+            ]
             
             //loop thru and store all data
             for (id in data.locations){
                 country_data = data.locations[id]
                 cases_info = country_data.latest
                 country_name = country_data.country
-                dataObj[country_name] = cases_info
+
+                cases_info["country"] = country_name
+                dataObj.push(cases_info)
 
             } 
+            //sort data by confirmed cases
+            dataObj.sort(function(a, b){
+                return b.confirmed - a.confirmed
+            })
             return dataObj
             
         }
-
         
         // console.log(dataObj);
         // console.log(dataObj)
