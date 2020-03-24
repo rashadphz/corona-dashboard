@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corona Info</title>
     <link rel="stylesheet" type="text/css" href="table.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
-    <table style="width:100%" id = "statsTable">
+    <div class="topnav">
+        <span id = "logo">CoronaInfo</span>
+        <a href="/about">About</a>
+        <a href="/whatis">What is COVID-19?</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/data" >Data</a>
+    </div>
+
+
+    <table style="width:25%" id = "statsTable">
         <tr>
           <th>Country</th>
           <th>Confirmed</th> 
@@ -23,7 +33,9 @@
         makeTable();
 
         async function makeTable(){
-            const dataObj = await getData(); 
+            var dataObj = await getData(); 
+            //only displaying first few countries
+            dataObj = dataObj.slice(0, 16)
             console.log(dataObj)
             let statsTable = document.getElementById('statsTable')
 
@@ -39,15 +51,21 @@
                 const cell1 = row.insertCell(0);
                 cell1.innerHTML = country_name
 
+                //toLocaleString places commas appropriately
+                
                 const cell2 = row.insertCell(1);
-                cell2.innerHTML = confirmed
+                cell2.innerHTML = confirmed.toLocaleString()
 
                 const cell3 = row.insertCell(2);
-                cell3.innerHTML = deaths
+                cell3.innerHTML = deaths.toLocaleString()
 
                 const cell4 = row.insertCell(3);
-                cell4.innerHTML = recovered
-                
+                cell4.innerHTML = recovered.toLocaleString()
+
+                cell1.id = "country"
+                cell2.id = "data";
+                cell3.id = "data";
+                cell4.id = "data";
 
             }
         }

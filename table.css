@@ -1,8 +1,84 @@
+/* gets rid of white space */
+body { margin:0; } 
+
+html{
+    scroll-behavior: smooth;
+  }
+
 table, th, td {
-    border: 1px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
+    font-family: 'Quicksand', sans-serif;
   }
-  th, td {
-    padding: 15px;
-    text-align: left;
+th, td {
+padding: 7px;
+text-align: center;
+}
+#data {
+    font-size: 17px;
+    font-weight: bolder;
+}
+#country {
+    font-size: 14px;
+    font-weight: bolder;
+}
+table {
+    table-layout: fixed;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+}
+
+.topnav{
+    width: 100%;
+    height: 10vh;
+    background-color: beige;
+    background-size: cover;
+}
+
+#logo {
+    font-weight: bold;
+    float: left;
+    color: rgb(224, 168, 104);
+    text-align: center;
+    padding: 1% 5%;
+    text-decoration: none;
+    font-size: 35px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.topnav a {
+    position: relative;
+    font-weight: bold;
+    float: right;
+    color: rgb(156, 53, 53);
+    text-align: right;
+    padding: 0.5% 2.5%;
+    top: 30%;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: 'Quicksand', sans-serif;
+    }
+
+/* line under links */
+.topnav a:before{
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    bottom: 0;
+    left: 10%;
+    background-color: rgb(156, 53, 53);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+.topnav a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
   }
+
+.topnav a:hover {
+    font-weight: bolder;
+
+}
