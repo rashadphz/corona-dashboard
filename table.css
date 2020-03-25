@@ -45,7 +45,7 @@ table {
 }
 
 #links {
-    width: 75%
+    width: 75%;
 }
 
 #logotext {
@@ -68,7 +68,7 @@ table {
     padding: 0.5% 2.5%;
     top: 30%;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 25px;
     font-family: 'Quicksand', sans-serif;
     }
 
@@ -92,7 +92,7 @@ table {
 
 .topnav a:hover {
     font-weight: bolder;
-
+    font-size: 26px;
 }
 
 .white-background {

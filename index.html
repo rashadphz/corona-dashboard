@@ -35,7 +35,7 @@
         </div>
         <div class = "fullBox">
             <div id = "reddiv" class = "box">
-                <span id="confirmed" class = "child"></span> 
+                <span id="confirmed" class = "child">0</span> 
             </div>
             <div class ="base" id = "red_base">
                 <span>Confirmed</span>
@@ -43,7 +43,7 @@
         </div>
         <div class = "fullBox">
             <div id = "graydiv" class = "box">
-                <span id="dead" class = "child"></span>
+                <span id="dead" class = "child">0</span>
             </div>
             <div class ="base" id = "gray_base">
                 <span>Deaths</span>
@@ -52,7 +52,7 @@
 
         <div class = "fullBox">
             <div id = "greendiv" class = "box">
-                <span id="recovered" class = "child"></span>
+                <span id="recovered" class = "child">0</span>
             </div>
             <div class ="base" id = "green_base">
                 <span>Recovered</span>
@@ -92,11 +92,12 @@
                 confirmed = dataObj[id].confirmed
                 deaths = dataObj[id].deaths
                 recovered = dataObj[id].recovered
+                flag = dataObj[id].flag
 
                 const row = statsTable.insertRow();
 
                 const cell1 = row.insertCell(0);
-                cell1.innerHTML = country_name
+                cell1.innerHTML = country_name + "<img src= " + flag +  " width = '50' height = '30' >" 
 
                 //toLocaleString places commas appropriately
                 
@@ -147,11 +148,12 @@
             for (index in data){
                 info = data[index];
                 country_name = info.country;
-                
+
                 cases_info = {
                     confirmed : info.cases,
                     deaths : info.deaths,
-                    recovered : info.recovered
+                    recovered : info.recovered,
+                    flag : info.countryInfo.flag
                 }
                 cases_info["country"] = country_name
                 dataObj.push(cases_info)
