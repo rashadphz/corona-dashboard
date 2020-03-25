@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corona Info</title>
+    <title>rona19</title>
     <link rel="stylesheet" type="text/css" href="table.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
@@ -74,8 +74,8 @@
       </table>
 
     <script>
-        const api_url = "https://coronavirus-tracker-api.herokuapp.com/v2/locations";
-
+        const api_url = "https://corona.lmao.ninja/countries?sort=%7Bparameter%7D";
+        const latest_api = "https://corona.lmao.ninja/all"
         makeTable();
 
         async function makeTable(){
@@ -120,34 +120,43 @@
             const response = await fetch(api_url);
             const data = await response.json();
             
+            const latest_response = await fetch(latest_api);
+            const latest_data = await latest_response.json();
+
             //start with global data
             const dataObj = [
                 {
                 country: "Global",
-                confirmed : data.latest.confirmed,
-                deaths : data.latest.deaths,
-                recovered: data.latest.recovered
+                confirmed : latest_data.cases,
+                deaths : latest_data.deaths,
+                recovered: latest_data.recovered
                 }
             ]
+            console.log(dataObj)
             var cHTML = document.getElementById('confirmed');
-            cHTML.innerHTML = data.latest.confirmed.toLocaleString();
+            cHTML.innerHTML = latest_data.cases.toLocaleString();
 
             var dHTML = document.getElementById('dead');
-            dHTML.innerHTML = data.latest.deaths.toLocaleString();
+            dHTML.innerHTML = latest_data.deaths.toLocaleString();
 
             var rHTML = document.getElementById('recovered');
-            rHTML.innerHTML = data.latest.recovered.toLocaleString();
+            rHTML.innerHTML = latest_data.recovered.toLocaleString();
 
             //loop thru and store all data
-            for (id in data.locations){
-                country_data = data.locations[id]
-                cases_info = country_data.latest
-                country_name = country_data.country
-
+            for (index in data){
+                info = data[index];
+                country_name = info.country;
+                
+                cases_info = {
+                    confirmed : info.cases,
+                    deaths : info.deaths,
+                    recovered : info.recovered
+                }
                 cases_info["country"] = country_name
                 dataObj.push(cases_info)
 
             } 
+            console.log(dataObj)
             //sort data by confirmed cases
             dataObj.sort(function(a, b){
                 return b.confirmed - a.confirmed
