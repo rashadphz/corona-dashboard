@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -59,8 +61,10 @@
             </div>   
         </div>
         
+    </div>
 
-
+    <div id = "graphdiv">
+        <canvas id = "chart"></canvas>
     </div>
 
 
@@ -76,8 +80,10 @@
 
     <script>
         const api_url = "https://corona.lmao.ninja/countries?sort=%7Bparameter%7D";
-        const latest_api = "https://corona.lmao.ninja/all"
+        const latest_api = "https://corona.lmao.ninja/all";
+        const historical_url = "https://corona.lmao.ninja/v2/historical";
         makeTable();
+        makeGraph();
 
         async function makeTable(){
             var dataObj = await getData(); 
@@ -118,6 +124,27 @@
             }
         }
         
+        async function makeGraph() {
+            const data = await getHistoricalData();
+            console.log(data)
+            const ctx = document.getElementById('chart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.xs,
+                    datasets: [{
+                        label: 'Global Average Temperature in C°',
+                        data: data.deaths_ys,
+                        fill: false,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+            
+            });
+        }
+
         async function getData(){
             const response = await fetch(api_url);
             const data = await response.json();
@@ -168,6 +195,53 @@
             
         }
         
+        async function getHistoricalData(){
+            var xs = [];
+            var cases_ys = [];
+            var deaths_ys = [];
+
+            const response = await fetch(historical_url);
+            const data = await response.json();
+
+            const totalHistorical = {
+            }
+            for (index in data){
+                info = data[index]
+                timeline = info.timeline
+                cases = timeline.cases
+                deaths = timeline.deaths
+
+                for (day in cases){
+                    if (totalHistorical[day] === undefined){
+                        totalHistorical[day] = {
+                            cases: cases[day],
+                            deaths: deaths[day]
+                        }
+                    }else{
+                        totalHistorical[day].cases += cases[day]
+                        totalHistorical[day].deaths += deaths[day]
+                    }
+                }
+
+            }
+            for (date in totalHistorical){
+                xs.push(date)
+                cases_ys.push(totalHistorical[date].cases)
+                deaths_ys.push(totalHistorical[date].deaths)
+            }
+
+            xs = lessData(xs)
+            cases_ys = lessData(cases_ys)
+            deaths_ys = lessData(deaths_ys)
+
+            return {xs, cases_ys, deaths_ys}
+        }
+
+        function lessData(array){
+            for (var i = 2; i <= array.length; i += 2)
+                array.splice(i, 1);
+            return array
+        }
         // console.log(dataObj);
         // console.log(dataObj)
 

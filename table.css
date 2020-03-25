@@ -148,6 +148,13 @@ table {
     font-family: 'Rubik', sans-serif;
     font-weight: bolder;
 }
+#graphdiv{
+    margin-left: 30px;
+    margin-top: 50px;
+    width: 65%;
+    height: 100%;
+    overflow: visible;
+}
 
 #reddiv {
     background-color: rgba(236, 158, 158, 0.5);
