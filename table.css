@@ -8,7 +8,7 @@ html{
 table, th, td {
     border: 2px solid black;
     border-collapse: collapse;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Rubik', sans-serif;
   }
 th, td {
 padding: 7px;
@@ -26,7 +26,7 @@ table {
     table-layout: fixed;
     position: absolute;
     top: 40%;
-    left: 70%;
+    left: 72%;
 }
 
 .topnav{
@@ -56,7 +56,7 @@ table {
     padding: 1% 5%;
     text-decoration: none;
     font-size: 35px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 
 .topnav a {
@@ -69,7 +69,8 @@ table {
     top: 30%;
     text-decoration: none;
     font-size: 25px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    
     }
 
 /* line under links */
@@ -84,8 +85,10 @@ table {
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
+    
 }
 .topnav a:hover:before {
+    
     visibility: visible;
     transform: scaleX(1);
   }
@@ -93,6 +96,8 @@ table {
 .topnav a:hover {
     font-weight: bolder;
     font-size: 26px;
+    color: rgb(156, 53, 53);
+    text-decoration: none;
 }
 
 .white-background {
@@ -151,9 +156,12 @@ table {
 #graphdiv{
     margin-left: 30px;
     margin-top: 50px;
-    width: 65%;
-    height: 100%;
+    width: 68%;
     overflow: visible;
+}
+#chart{
+    height: 50%;
+
 }
 
 #reddiv {

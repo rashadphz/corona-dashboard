@@ -63,8 +63,8 @@
         
     </div>
 
-    <div id = "graphdiv">
-        <canvas id = "chart"></canvas>
+    <div id = "graphdiv" height = 400px>
+        <canvas id = "chart" ></canvas>
     </div>
 
 
@@ -79,6 +79,7 @@
       </table>
 
     <script>
+        
         const api_url = "https://corona.lmao.ninja/countries?sort=%7Bparameter%7D";
         const latest_api = "https://corona.lmao.ninja/all";
         const historical_url = "https://corona.lmao.ninja/v2/historical";
@@ -128,19 +129,86 @@
             const data = await getHistoricalData();
             console.log(data)
             const ctx = document.getElementById('chart').getContext('2d');
+            
             const myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: data.xs,
                     datasets: [{
-                        label: 'Global Average Temperature in C°',
-                        data: data.deaths_ys,
-                        fill: false,
+                        label: 'Confirmed cases',
+                        data: data.cases_ys,
+                        fill: true,
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
-                    }]
+                        borderWidth: 5,
+                    }, {
+                        label: 'Deaths',
+                        data: data.deaths_ys,
+                        fill: true,
+                        backgroundColor: 'rgba(105, 103, 103, 0.5)',
+                        borderColor: 'rgb(105, 103, 103)',
+                        borderWidth: 5,
+                    } ],
+
                 },
+                options: {
+                    legend: {
+                        labels: {
+                            fontSize: 17,
+                            fontColor: "black",
+                            fontStyle: "bold",
+                            fontFamily: "Rubik"
+                        }
+                    },
+                    title: {
+                        display: true,
+                        fontSize: 29,
+                        text: "COVID-19 Outbreak over time",
+                        fontColor: "black",
+                        fontFamily: "Rubik"
+
+
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                // Place commas appropriately
+                                callback: function(value, index, values) {
+                                    return value.toLocaleString();
+                                },
+                                fontSize: 15,
+                                fontColor: "black",
+                                fontFamily: "Rubik"
+                            },
+                            scaleLabel : {
+                                display: true,
+                                labelString: "# of People",
+                                fontSize: 29,
+                                fontColor: "black",
+                                fontFamily: "Rubik"
+
+                            }
+                        }],
+                        xAxes : [{
+                            ticks: {
+                                fontSize: 15,
+                                fontColor: "black",
+                                fontFamily: "Rubik"
+                            },
+                            scaleLabel : {
+                                display: true,
+                                labelString: "Dates",
+                                fontSize: 29,
+                                fontColor: "black",
+                                fontFamily: "Rubik"
+
+                            },
+                            
+                        }]
+                        
+                    }
+
+                }
             
             });
         }
@@ -203,7 +271,13 @@
             const response = await fetch(historical_url);
             const data = await response.json();
 
+            date = new Date(Date.now()).toLocaleString().split(',')[0]
+            date = date.replace(/(?=....$)../g,""); 
+
+            current_day_data = await getData();
+
             const totalHistorical = {
+     
             }
             for (index in data){
                 info = data[index]
@@ -224,11 +298,18 @@
                 }
 
             }
+            // add current date to graph
+            totalHistorical[date] = {
+                cases: current_day_data[0].confirmed,
+                deaths: current_day_data[0].deaths
+            }
+
             for (date in totalHistorical){
                 xs.push(date)
                 cases_ys.push(totalHistorical[date].cases)
                 deaths_ys.push(totalHistorical[date].deaths)
             }
+            
 
             xs = lessData(xs)
             cases_ys = lessData(cases_ys)
