@@ -11,16 +11,26 @@
 <body>
 
     <div class="topnav">
-        <span id = "logo">CoronaInfo</span>
-        <a href="/about">About</a>
-        <a href="/whatis">What is COVID-19?</a>
-        <a href="/analytics">Analytics</a>
-        <a href="/data" >Data</a>
+        <div id = "logodiv">
+            <img src="virus.png" width = 50 height = 50>
+            <span id = "logotext">rona19</span>   
+        </div>
+        <div id ="links">
+            <a href="/about">About</a>
+            <a href="/whatis">What is COVID-19?</a>
+            <a href="/analytics">Analytics</a>
+            <a href="/data" >Data</a>
+        </div>
+       
     </div>
 
     <div class = "white-background">
         <div>
-            BSLKDSNAKDDA
+            <span class = "updates">Latest Updates</span>
+            <div class = "dropdown">
+                <button onclick="myFunction()" class="dropbtn">Global</button>
+
+            </div>
         </div>
         <div class = "fullBox">
             <div id = "reddiv" class = "box">
@@ -150,6 +160,7 @@
         // console.log(dataObj)
 
         // setInterval(getData, 20000);
+        
     </script>
     
 </body>
