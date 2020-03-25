@@ -6,14 +6,50 @@
     <title>Corona Info</title>
     <link rel="stylesheet" type="text/css" href="table.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="topnav">
         <span id = "logo">CoronaInfo</span>
         <a href="/about">About</a>
         <a href="/whatis">What is COVID-19?</a>
         <a href="/analytics">Analytics</a>
         <a href="/data" >Data</a>
+    </div>
+
+    <div class = "white-background">
+        <div>
+            BSLKDSNAKDDA
+        </div>
+        <div class = "fullBox">
+            <div id = "reddiv" class = "box">
+                <span id="confirmed" class = "child"></span> 
+            </div>
+            <div class ="base" id = "red_base">
+                <span>Confirmed</span>
+            </div>   
+        </div>
+        <div class = "fullBox">
+            <div id = "graydiv" class = "box">
+                <span id="dead" class = "child"></span>
+            </div>
+            <div class ="base" id = "gray_base">
+                <span>Deaths</span>
+            </div>   
+        </div>
+
+        <div class = "fullBox">
+            <div id = "greendiv" class = "box">
+                <span id="recovered" class = "child"></span>
+            </div>
+            <div class ="base" id = "green_base">
+                <span>Recovered</span>
+            </div>   
+        </div>
+        
+
+
     </div>
 
 
@@ -83,7 +119,15 @@
                 recovered: data.latest.recovered
                 }
             ]
-            
+            var cHTML = document.getElementById('confirmed');
+            cHTML.innerHTML = data.latest.confirmed.toLocaleString();
+
+            var dHTML = document.getElementById('dead');
+            dHTML.innerHTML = data.latest.deaths.toLocaleString();
+
+            var rHTML = document.getElementById('recovered');
+            rHTML.innerHTML = data.latest.recovered.toLocaleString();
+
             //loop thru and store all data
             for (id in data.locations){
                 country_data = data.locations[id]

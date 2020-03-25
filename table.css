@@ -82,3 +82,66 @@ table {
     font-weight: bolder;
 
 }
+
+.white-background {
+    margin-top: 20px;
+    /* border: 2px solid rgb(0, 0, 0); */
+    width: 65%;
+    display: flex;
+    justify-content: space-around;
+    height : 20vh;
+
+}
+.fullBox {
+    text-align: center;
+    width: 25%;
+    height: 100%;
+    font-family: 'Rubik', sans-serif;
+    
+  }
+
+.box {
+    font-weight: bolder;
+    border-radius: 10px 10px 0px 0px;
+    height: 60%;
+    font-size: 50px;
+    line-height: 120px;
+    box-shadow: 10px 10px 5px grey;
+}
+.base {
+    border-radius: 0px 0px 10px 10px;
+    font-size: 25px;
+    height: 30%;
+    line-height: 50px;
+    box-shadow: 10px 10px 5px grey;
+    
+}
+
+#reddiv {
+    background-color: rgba(236, 158, 158, 0.5);
+    color: rgb(255, 0, 0);
+}
+#graydiv {
+    background-color: rgba(105, 103, 103, 0.5);
+    color: rgb(75, 73, 73);
+}
+#greendiv {
+    background-color: rgba(126, 248, 152, 0.500);
+    color: rgb(50, 148, 47);
+  
+}
+
+#red_base {
+    background-color: rgb(241, 79, 79);
+    color: rgb(255, 255, 255);
+}
+#gray_base {
+    background-color: rgb(105, 103, 103);
+    color: rgb(255, 255, 255);
+}
+#green_base {
+    background-color: rgb(126, 248, 152);
+    color: rgb(255, 255, 255);
+  
+}
+
