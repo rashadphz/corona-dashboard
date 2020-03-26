@@ -18,15 +18,15 @@
             <span id = "logotext">rona19</span>   
         </div>
         <div id ="links">
-            <a href="/about">About</a>
+            <a href="#about">About</a>
             <a href="/whatis">What is COVID-19?</a>
             <a href="/analytics">Analytics</a>
-            <a href="/data" >Data</a>
+            <a href="#data" >Data</a>
         </div>
        
     </div>
 
-    <div class = "content">
+    <div class = "home" id = "data">
         <div class = "white-background">
             <div id = "live">
                 <span class = "updates">Latest Updates</span>
@@ -108,6 +108,30 @@
             </div>
         </div>
     </div>
+
+    <div id = "about">
+        <div id = "container">
+            <div id = "myinfo" >
+                <div id = "name-photo" style = "display: flex;">
+                    <a href="https://github.com/rashadphil/corona-tracker" target="_blank">
+                        <img src="https://avatars2.githubusercontent.com/u/20783686?v=4" id = "imghover" width = 250 height = 250 style = "border-radius: 50%; margin-top: 80px; margin-left: 60px;">
+                    </a>
+                    <h1 style = "margin-top: 90px; margin-left: 50px; font-size: 80px; font-family: Quicksand; font-weight: bolder; height: 100px">Rashad Philizaire</h1>
+                    <div id = infotext style="margin-top: 200px; position: relative; margin-left: -620px; font-size: 25px; color: rgb(121, 121, 121); font-family: Quicksand;">
+                        <span> Student at Thomas Jefferson High School For Science and Technology</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div id = "abouttext">
+                <h1 style="color: maroon; font-size: 50px; text-align: center; padding-top: 25px; font-weight: bolder; font-family: Rubik;" >
+                    About
+                </h1>
+            </div>
+        </div>
+    </div>
+
     <script>
         
         const api_url = "https://corona.lmao.ninja/countries?sort=%7Bparameter%7D";
@@ -119,7 +143,7 @@
         async function makeTable(){
             var dataObj = await getData(); 
             //only displaying first few countries
-            dataObj = dataObj.slice(0, 18)
+            dataObj = dataObj.slice(0, 16)
             console.log(dataObj)
             let statsTable = document.getElementById('statsTable')
 
@@ -134,7 +158,7 @@
                 const row = statsTable.insertRow();
 
                 const cell1 = row.insertCell(0);
-                cell1.innerHTML = country_name + "<img src= " + flag +  " width = '50' height = '30' >" 
+                cell1.innerHTML = "<img src= " + flag +  " width = '30' height = '20' >" + country_name 
 
                 //toLocaleString places commas appropriately
                 
@@ -244,7 +268,7 @@
         }
 
         async function getData(){
-            const response = await fetch(api_url);
+            const response = await fetch(api_url, {cache: "reload"});
             const data = await response.json();
             
             const latest_response = await fetch(latest_api);
@@ -299,7 +323,7 @@
             var cases_ys = [];
             var deaths_ys = [];
 
-            const response = await fetch(historical_url);
+            const response = await fetch(historical_url, {cache: "reload"});
             const data = await response.json();
 
             date = new Date(Date.now()).toLocaleString().split(',')[0]
