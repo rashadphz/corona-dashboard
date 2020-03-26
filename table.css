@@ -5,14 +5,18 @@ html{
     scroll-behavior: smooth;
   }
 
+:root {
+    --maroon-color:rgb(156, 53, 53);
+}
 table, th, td {
     border: 2px solid black;
     border-collapse: collapse;
     font-family: 'Rubik', sans-serif;
+    
   }
 th, td {
-padding: 7px;
-text-align: center;
+    padding: 7px;
+    text-align: center;
 }
 #data {
     font-size: 17px;
@@ -23,11 +27,13 @@ text-align: center;
     font-weight: bolder;
 }
 table {
-    table-layout: fixed;
-    position: absolute;
-    top: 40%;
-    left: 72%;
+    table-layout: absolute;
+    /* position: fixed; */
+    /* top: 40%; */
+    /* left: 72%;  */
 }
+
+
 
 .topnav{
     width: 100%;
@@ -63,7 +69,7 @@ table {
     position: relative;
     font-weight: bold;
     float: right;
-    color: rgb(156, 53, 53);
+    color: var(--maroon-color);
     text-align: right;
     padding: 0.5% 2.5%;
     top: 30%;
@@ -81,7 +87,7 @@ table {
     height: 2px;
     bottom: 0;
     left: 10%;
-    background-color: rgb(156, 53, 53);
+    background-color: var(--maroon-color);
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
@@ -96,18 +102,22 @@ table {
 .topnav a:hover {
     font-weight: bolder;
     font-size: 26px;
-    color: rgb(156, 53, 53);
+    color: var(--maroon-color);
     text-decoration: none;
 }
+#full-back{
+    background-color: rgb(255,250,240)
 
+}
 .white-background {
-    margin-left: 30px;
+    margin-left: 10px;
     margin-top: 20px;
     /* border: 2px solid rgb(0, 0, 0); */
-    width: 63%;
+    width: 68%;
     display: flex;
     justify-content: space-around;
     height : 20vh;
+    float: left;
 
 }
 .fullBox {
@@ -123,6 +133,7 @@ table {
     border-radius: 10px 10px 0px 0px;
     height: 60%;
     font-size: 50px;
+    font-size: 3.4vw;
     line-height: 120px;
     box-shadow: 10px 10px 5px grey;
 }
@@ -142,22 +153,31 @@ table {
 
 }
 .dropbtn{
-    width: 100%;
-    margin-top: 15px;
+    width: 85%;
     background-color: rgb(237, 242, 247);
-    border: none;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 5px;
     padding: 10px 28px;
     text-align: center;
     display: inline-block;
     font-size: 22px;
     font-family: 'Rubik', sans-serif;
     font-weight: bolder;
+
 }
+
+#live {
+    width: 19%;
+    
+}
+
 #graphdiv{
     margin-left: 30px;
     margin-top: 50px;
     width: 68%;
     overflow: visible;
+    float: left;
 }
 #chart{
     height: 50%;
@@ -192,3 +212,53 @@ table {
   
 }
 
+#tableContainer {
+    width : 28%;
+    float: right;
+    margin-top: -200px;
+}
+
+#tbldiv {
+    /* width : 28%;
+    float: right; */
+    /* position: relative; */
+    /* display: flex; */
+    /* margin-left: 10%; */
+    /* margin-top: 17%; */
+}
+#primary-text {
+    margin-top: 40px;
+    margin-left: 10px;
+    padding: 1px 12px;
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: "Rubik";
+    text-transform: uppercase;
+    color: var(--maroon-color);
+    border-left: 4px solid var(--maroon-color);
+}
+
+#statsTable {
+    text-align: center;
+    width: 90%;
+    margin-left: 12px;
+    margin-top: 30px;
+    font-size: 1vw;
+}
+
+#navbar {
+    overflow: hidden;
+    border-bottom: 3px solid var(--maroon-color);
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+.content {
+padding: 16px;
+}
+.sticky + .content {
+padding-top: 80px;
+}
