@@ -253,8 +253,14 @@ table {
 padding-top: 80px;
 }
 
+#whatis {
+    height: 150vh;
+    width: 100%;
+    background-color: rgb(255,250,240);
+}
+
 #about {
-    height: 300vh;
+    height: 150vh;
     width: 100%;
     background-color: rgb(255,250,240);
 }
@@ -281,5 +287,13 @@ padding-top: 80px;
 #imghover:hover {
     box-shadow: 10px 10px 5px grey;
     transform: rotate(-10deg);
+}
+
+/* fixed header height*/
+.anchor::before {
+    content:"";
+    display:block;
+    height:50px; 
+    margin:-50px 0 0; 
 }
 
