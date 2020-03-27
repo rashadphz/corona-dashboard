@@ -48,6 +48,7 @@
     padding: 6px 12px;
     -webkit-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
+    font-size: 30px;
 }
 
 /* Fade in tabs */
