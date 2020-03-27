@@ -28,6 +28,7 @@ th, td {
 }
 table {
     table-layout: absolute;
+    /* padding: 50px; */
     /* position: fixed; */
     /* top: 40%; */
     /* left: 72%;  */

@@ -1,0 +1,62 @@
+:root {
+    --maroon-color:rgb(156, 53, 53);
+}
+/* Style the tab */
+.tab {
+    margin-top: 50px;
+    overflow: hidden;
+    display: flex; justify-content: space-around;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: .4s;
+    font-size: 3vw;
+    outline: none;
+  /* margin-left: 11.8%; */
+  
+}
+/* removes blue border around button */
+.tab button:focus {
+    outline: 0;
+    outline: none;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    color: rgba(145, 22, 22, 0.500);
+    border-bottom: 5px solid rgba(145, 22, 22, 0.500);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    
+    border-bottom: 5px solid var(--maroon-color);
+    color: var(--maroon-color);
+}
+
+/* Style the tab content */
+.tabcontent {
+    text-align: center;
+    margin-top: 50px;
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
