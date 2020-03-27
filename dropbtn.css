@@ -1,0 +1,42 @@
+.dropbtn {
+    background-color: rgb(226, 232, 240);
+    color: black;
+    width: 11vw;
+    font-size: 1.5vw;
+    border: none;
+    cursor: pointer;
+    z-index: 0;
+    font-family: "Rubik";
+  }
+  
+  .dropbtn:focus {
+    outline: 0;
+    outline: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    min-width: 11vw;
+    overflow: auto;
+    z-index: 1;
+    font-family: "Rubik";
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}

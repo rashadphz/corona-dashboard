@@ -54,6 +54,7 @@ table {
     background-color: rgb(245, 245, 220);
     background-size: cover;
     display:flex;
+    z-index: 1;
 }
 
 #logodiv {
@@ -119,8 +120,22 @@ table {
     text-decoration: none;
 }
 
+#live {
+    margin-top: 25px;
+    width: 12vw; 
+}
+.updates{
+    height : 50px;
+    text-align: left;
+    font-size: 1.5vw;
+    font-family: 'Rubik', sans-serif;
+
+}
+
+
+
 .white-background {
-    margin-left: 10px;
+    /* margin-left: 10px; */
     margin-top: 20px;
     /* border: 2px solid rgb(0, 0, 0); */
     width: 67vw;
@@ -154,32 +169,8 @@ table {
     box-shadow: 10px 10px 5px grey;
     
 }
-.updates{
-    height : 50px;
-    text-align: left;
-    font-size: 2vw;
-    font-family: 'Rubik', sans-serif;
 
-}
-.dropbtn{
-    width: 85%;
-    background-color: rgb(237, 242, 247);
-    border-color: black;
-    border-width: 3px;
-    border-radius: 5px;
-    padding: 10px 28px;
-    text-align: center;
-    display: inline-block;
-    font-size: 22px;
-    font-family: 'Rubik', sans-serif;
-    font-weight: bolder;
 
-}
-
-#live {
-    width: 19%;
-    
-}
 
 #graphdiv{
     margin-left: 30px;
