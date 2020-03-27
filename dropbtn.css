@@ -8,7 +8,7 @@
     z-index: 0;
     font-family: "Rubik";
   }
-  
+
   .dropbtn:focus {
     outline: 0;
     outline: none;
@@ -28,6 +28,8 @@
     overflow: auto;
     z-index: 1;
     font-family: "Rubik";
+    max-height:280px;
+    overflow:scroll; 
   }
   
   .dropdown-content a {
