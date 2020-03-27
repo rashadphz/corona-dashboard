@@ -19,11 +19,11 @@ th, td {
     text-align: center;
 }
 #data {
-    font-size: 17px;
+    font-size: 1.2vw;
     font-weight: bolder;
 }
 #country {
-    font-size: 14px;
+    font-size: .9vw;
     font-weight: bolder;
 }
 table {
@@ -34,7 +34,19 @@ table {
     /* left: 72%;  */
 }
 
+#tableContainer {
+    width : 27vw;
+    float: right;
+    margin-top: -200px;
+}
 
+#statsTable {
+    text-align: center;
+    width: 90%;
+    margin-left: 1px;
+    margin-top: 30px;
+    font-size: 1vw;
+}
 
 .topnav{
     width: 100%;
@@ -209,11 +221,7 @@ table {
   
 }
 
-#tableContainer {
-    width : 27vw;
-    float: right;
-    margin-top: -200px;
-}
+
 
 #primary-text {
     margin-top: 40px;
@@ -227,13 +235,7 @@ table {
     border-left: 4px solid var(--maroon-color);
 }
 
-#statsTable {
-    text-align: center;
-    width: 90%;
-    margin-left: 12px;
-    margin-top: 30px;
-    font-size: 1vw;
-}
+
 
 #navbar {
     overflow: hidden;
