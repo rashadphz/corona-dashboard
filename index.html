@@ -244,7 +244,7 @@
         const latest_api = "https://corona.lmao.ninja/all";
         const historical_url = "https://corona.lmao.ninja/v2/historical";
         makeTable();
-        makeGraph();
+        makeGraph("global");
 
         async function makeTable(){
             var dataObj = await getData(); 
@@ -284,8 +284,10 @@
             }
         }
         
-        async function makeGraph() {
-            const data = await getHistoricalData();
+        async function makeGraph(country) {
+            var data = await getaxisvalues(country);
+            console.log(data)
+            
             const ctx = document.getElementById('chart').getContext('2d');
 
             const myChart = new Chart(ctx, {
@@ -374,6 +376,7 @@
         }
 
         async function getData(){
+
             const response = await fetch(api_url, {cache: "reload"});
             const data = await response.json();
             
@@ -422,12 +425,13 @@
                 var b = document.createElement('BUTTON');
                 var linkText = document.createTextNode("");
                 b.appendChild(linkText);
-                console.log(country_name)
                 
                 b.style = "background-color: white; color: black; width: 11vw; font-size: 1.2vw; border: none; font-family: Rubik; padding: 5px;"
                 b.country = country_name;
                 b.cases_info = cases_info;
-                b.onclick = function(){updateForCountry(this.country, this.cases_info)}
+                b.className = "countrybuttons"
+                b.addEventListener("click", function(){updateLatestForCountry(this.country, this.cases_info)})
+                b.addEventListener("click", function(){makeGraph(this.country)})
                 b.innerHTML = "<img src= " + info.countryInfo.flag + " width = '30' height = '20' > " + country_name;
                 dropdown.appendChild(b);
                 
@@ -441,9 +445,6 @@
         }
         
         async function getHistoricalData(){
-            var xs = [];
-            var cases_ys = [];
-            var deaths_ys = [];
 
             const response = await fetch(historical_url, {cache: "reload"});
             const data = await response.json();
@@ -453,16 +454,38 @@
 
             current_day_data = await getData();
 
+            const countryHistorical = {
+
+            }
+
             const totalHistorical = {
      
             }
+
             for (index in data){
                 info = data[index]
+                country = info.country
                 timeline = info.timeline
                 cases = timeline.cases
                 deaths = timeline.deaths
+                
+                country_info = {
 
+                }
                 for (day in cases){
+
+                    //because duplicate countries with diff cities
+                    if (countryHistorical[country] === undefined){
+                        country_info[day] = {
+                            cases: cases[day],
+                            deaths: deaths[day]
+                        }
+                    }else{
+                        country_info[day] = {
+                            cases: countryHistorical[country][day].cases + cases[day],
+                            deaths: countryHistorical[country][day].deaths + deaths[day]
+                        }
+                    }
                     if (totalHistorical[day] === undefined){
                         totalHistorical[day] = {
                             cases: cases[day],
@@ -473,21 +496,45 @@
                         totalHistorical[day].deaths += deaths[day]
                     }
                 }
+                countryHistorical[country] = country_info
 
             }
+
+            var country_buttons = document.getElementsByClassName("countrybuttons")
+
+            
             // add current date to graph
             totalHistorical[date] = {
                 cases: current_day_data[0].confirmed,
                 deaths: current_day_data[0].deaths
             }
 
-            for (date in totalHistorical){
-                xs.push(date)
-                cases_ys.push(totalHistorical[date].cases)
-                deaths_ys.push(totalHistorical[date].deaths)
+            return {totalHistorical, countryHistorical}
+        }
+
+
+        async function getaxisvalues(countryinput){
+            countryinput = countryinput.toLowerCase();
+            historicalData = await getHistoricalData();
+            totalHistorical = historicalData.totalHistorical;
+            countryHistorical = historicalData.countryHistorical;
+
+            var dataused = totalHistorical
+            if (countryinput != 'global'){
+                dataused = countryHistorical[countryinput]
             }
             
+            
+            var xs = [];
+            var cases_ys = [];
+            var deaths_ys = [];
 
+            for (date in dataused){
+                xs.push(date)
+                cases_ys.push(dataused[date].cases)
+                deaths_ys.push(dataused[date].deaths)
+            }
+             
             xs = lessData(xs)
             cases_ys = lessData(cases_ys)
             deaths_ys = lessData(deaths_ys)
@@ -514,19 +561,7 @@
             rHTML.innerHTML = cases_info.recovered.toLocaleString();
 
         }
-        function updateHistoricalForCountry(country, historical_data){
-
-        // updates graphs with country info
-        var cHTML = document.getElementById('confirmed');
-        cHTML.innerHTML = cases_info.confirmed.toLocaleString();
-
-        var dHTML = document.getElementById('dead');
-        dHTML.innerHTML = cases_info.deaths.toLocaleString();
-
-        var rHTML = document.getElementById('recovered');
-        rHTML.innerHTML = cases_info.recovered.toLocaleString();
-
-}
+ 
 
         window.onscroll = function() {stickyFunction()};
 
