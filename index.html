@@ -420,13 +420,17 @@
                 dataObj.push(cases_info)
 
                 // for adding countries to drop down
-                var a = document.createElement('a');
+                var b = document.createElement('BUTTON');
                 var linkText = document.createTextNode("");
-                a.appendChild(linkText);
+                b.appendChild(linkText);
                 console.log(country_name)
-                a.href = "javascript:updateForCountry(country_name, cases_info)";
-                a.innerHTML = "<img src= " + info.countryInfo.flag + " width = '30' height = '20' > " + country_name;
-                dropdown.appendChild(a);
+                
+                b.style = "background-color: white; color: black; width: 11vw; font-size: 1.2vw; border: none; font-family: Rubik; padding: 5px;"
+                b.country = country_name;
+                b.cases_info = cases_info;
+                b.onclick = function(){updateForCountry(this.country, this.cases_info)}
+                b.innerHTML = "<img src= " + info.countryInfo.flag + " width = '30' height = '20' > " + country_name;
+                dropdown.appendChild(b);
                 
             } 
             //sort data by confirmed cases
@@ -500,6 +504,7 @@
         
         function updateForCountry(country, cases_info){
             console.log(country)
+            console.log(cases_info)
         }
 
         var getQueryString = function ( field, url ) {
