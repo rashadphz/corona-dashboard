@@ -401,7 +401,6 @@
             rHTML.innerHTML = latest_data.recovered.toLocaleString();
 
             
-            
             var dropdown = document.getElementById("myDropdown") 
             //loop thru and store all data
             for (index in data){
@@ -502,10 +501,32 @@
             return array
         }
         
-        function updateForCountry(country, cases_info){
-            console.log(country)
-            console.log(cases_info)
+        function updateLatestForCountry(country, cases_info){
+
+            // updates boxes with country info
+            var cHTML = document.getElementById('confirmed');
+            cHTML.innerHTML = cases_info.confirmed.toLocaleString();
+
+            var dHTML = document.getElementById('dead');
+            dHTML.innerHTML = cases_info.deaths.toLocaleString();
+
+            var rHTML = document.getElementById('recovered');
+            rHTML.innerHTML = cases_info.recovered.toLocaleString();
+
         }
+        function updateHistoricalForCountry(country, historical_data){
+
+        // updates graphs with country info
+        var cHTML = document.getElementById('confirmed');
+        cHTML.innerHTML = cases_info.confirmed.toLocaleString();
+
+        var dHTML = document.getElementById('dead');
+        dHTML.innerHTML = cases_info.deaths.toLocaleString();
+
+        var rHTML = document.getElementById('recovered');
+        rHTML.innerHTML = cases_info.recovered.toLocaleString();
+
+}
 
         window.onscroll = function() {stickyFunction()};
 
