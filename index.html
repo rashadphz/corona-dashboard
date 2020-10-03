@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,90 +11,92 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.4/js/tether.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    
-    
-    
+
+
+
 </head>
 
-<body id = "full-back">
-    <div class="topnav" id = "navbar">
-        <div id = "logodiv">
-            <img src="virus.png" width = 50 height = 50 style="max-width:100%;max-height:100%;">
-            <span id = "logotext">rona19</span>   
+<body id="full-back">
+    <div class="topnav" id="navbar">
+        <div id="logodiv">
+            <img src="virus.png" width=50 height=50 style="max-width:100%;max-height:100%;">
+            <span id="logotext">rona19</span>
         </div>
-        <div id ="links">
+        <div id="links">
             <a href="#about">About</a>
             <a href="#whatis">What is COVID-19?</a>
             <a href="/analytics">Analytics</a>
-            <a href="#data" >Data</a>
+            <a href="#data">Data</a>
         </div>
-       
+
     </div>
 
-    <div class = "home" id = "data">
-        <div class = "white-background">
-            <div id = "live" >
-                <span class = "updates">Latest Updates</span>
+    <div class="home" id="data">
+        <div class="white-background">
+            <div id="live">
+                <span class="updates">Latest Updates</span>
                 <div class="dropdown">
-                    <button onclick="dropFunction()" class="dropbtn" id ="dropdowntext">Global</button>
+                    <button onclick="dropFunction()" class="dropbtn" id="dropdowntext">Global</button>
                     <div id="myDropdown" class="dropdown-content">
                     </div>
-                  </div>
-                  
-                  <script>
-                  /* When the user clicks on the button, 
+                </div>
+
+                <script>
+                    /* When the user clicks on the button, 
                   toggle between hiding and showing the dropdown content */
-                  function dropFunction() {
-                    document.getElementById("myDropdown").classList.toggle("show");
-                  }
-                  // Close the dropdown if the user clicks outside of it
-                  window.onclick = function(event) {
-                    if (!event.target.matches('.dropbtn')) {
-                      var dropdowns = document.getElementsByClassName("dropdown-content");
-                      var i;
-                      for (i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.classList.contains('show')) {
-                          openDropdown.classList.remove('show');
-                        }
-                      }
+                    function dropFunction() {
+                        document.getElementById("myDropdown").classList.toggle("show");
                     }
-                  }
-                  </script>
+                    // Close the dropdown if the user clicks outside of it
+                    window.onclick = function (event) {
+                        if (!event.target.matches('.dropbtn')) {
+                            var dropdowns = document.getElementsByClassName("dropdown-content");
+                            var i;
+                            for (i = 0; i < dropdowns.length; i++) {
+                                var openDropdown = dropdowns[i];
+                                if (openDropdown.classList.contains('show')) {
+                                    openDropdown.classList.remove('show');
+                                }
+                            }
+                        }
+                    }
+                </script>
             </div>
-            <div class = "fullBox">
-                <div id = "reddiv" class = "box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Red_check.svg" width = 40 height = 40>
-                    <span id="confirmed" class = "child">0</span> 
+            <div class="fullBox">
+                <div id="reddiv" class="box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Red_check.svg" width=40 height=40>
+                    <span id="confirmed" class="child">0</span>
                 </div>
-                <div class ="base" id = "red_base">
+                <div class="base" id="red_base">
                     <span>Confirmed</span>
-                </div>   
-            </div>
-            <div class = "fullBox">
-                <div id = "graydiv" class = "box">
-                    <svg xmlns="http://www.w3.org/2000/svg" width = 40 height = 40 viewBox="0 0 448 512"><path fill = "rgb(105, 103, 103)" d="M439.15 453.06L297.17 384l141.99-69.06c7.9-3.95 11.11-13.56 7.15-21.46L432 264.85c-3.95-7.9-13.56-11.11-21.47-7.16L224 348.41 37.47 257.69c-7.9-3.95-17.51-.75-21.47 7.16L1.69 293.48c-3.95 7.9-.75 17.51 7.15 21.46L150.83 384 8.85 453.06c-7.9 3.95-11.11 13.56-7.15 21.47l14.31 28.63c3.95 7.9 13.56 11.11 21.47 7.15L224 419.59l186.53 90.72c7.9 3.95 17.51.75 21.47-7.15l14.31-28.63c3.95-7.91.74-17.52-7.16-21.47zM150 237.28l-5.48 25.87c-2.67 12.62 5.42 24.85 16.45 24.85h126.08c11.03 0 19.12-12.23 16.45-24.85l-5.5-25.87c41.78-22.41 70-62.75 70-109.28C368 57.31 303.53 0 224 0S80 57.31 80 128c0 46.53 28.22 86.87 70 109.28zM280 112c17.65 0 32 14.35 32 32s-14.35 32-32 32-32-14.35-32-32 14.35-32 32-32zm-112 0c17.65 0 32 14.35 32 32s-14.35 32-32 32-32-14.35-32-32 14.35-32 32-32z"/></svg>
-                    <span id="dead" class = "child">0</span>
                 </div>
-                <div class ="base" id = "gray_base">
+            </div>
+            <div class="fullBox">
+                <div id="graydiv" class="box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width=40 height=40 viewBox="0 0 448 512">
+                        <path fill="rgb(105, 103, 103)"
+                            d="M439.15 453.06L297.17 384l141.99-69.06c7.9-3.95 11.11-13.56 7.15-21.46L432 264.85c-3.95-7.9-13.56-11.11-21.47-7.16L224 348.41 37.47 257.69c-7.9-3.95-17.51-.75-21.47 7.16L1.69 293.48c-3.95 7.9-.75 17.51 7.15 21.46L150.83 384 8.85 453.06c-7.9 3.95-11.11 13.56-7.15 21.47l14.31 28.63c3.95 7.9 13.56 11.11 21.47 7.15L224 419.59l186.53 90.72c7.9 3.95 17.51.75 21.47-7.15l14.31-28.63c3.95-7.91.74-17.52-7.16-21.47zM150 237.28l-5.48 25.87c-2.67 12.62 5.42 24.85 16.45 24.85h126.08c11.03 0 19.12-12.23 16.45-24.85l-5.5-25.87c41.78-22.41 70-62.75 70-109.28C368 57.31 303.53 0 224 0S80 57.31 80 128c0 46.53 28.22 86.87 70 109.28zM280 112c17.65 0 32 14.35 32 32s-14.35 32-32 32-32-14.35-32-32 14.35-32 32-32zm-112 0c17.65 0 32 14.35 32 32s-14.35 32-32 32-32-14.35-32-32 14.35-32 32-32z" />
+                    </svg>
+                    <span id="dead" class="child">0</span>
+                </div>
+                <div class="base" id="gray_base">
                     <span>Deaths</span>
-                </div>   
+                </div>
             </div>
 
-            <div class = "fullBox">
-                <div id = "greendiv" class = "box">
-                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width = 40 height = 40
-                    viewBox="0 0 1280.000000 1280.000000"
-                    preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-                    fill="rgb(50, 148, 47)" stroke="none">
-                    <path d="M6115 12794 c-281 -20 -371 -28 -500 -45 -1615 -210 -3089 -1010
+            <div class="fullBox">
+                <div id="greendiv" class="box">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width=40 height=40
+                        viewBox="0 0 1280.000000 1280.000000" preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)" fill="rgb(50, 148, 47)"
+                            stroke="none">
+                            <path d="M6115 12794 c-281 -20 -371 -28 -500 -45 -1615 -210 -3089 -1010
                     -4112 -2232 -788 -941 -1294 -2104 -1452 -3337 -37 -289 -46 -430 -46 -780 0
                     -510 39 -870 146 -1359 329 -1499 1203 -2865 2404 -3754 988 -732 2109 -1155
                     3360 -1269 183 -17 787 -17 970 0 678 62 1288 206 1890 447 1650 661 2916
@@ -106,132 +109,146 @@
                     500 -3865 1416 -167 139 -560 532 -699 699 -318 383 -558 751 -776 1190 -139
                     280 -222 475 -313 743 -437 1271 -437 2593 0 3864 91 268 174 463 313 743 218
                     439 458 807 776 1190 139 167 532 560 699 699 927 770 2043 1249 3221 1381
-                    301 34 718 44 1009 25z"/>
-                    <path d="M4650 9450 l0 -1260 -1245 -2 -1245 -3 -3 -1773 -2 -1772 1248 0
+                    301 34 718 44 1009 25z" />
+                            <path d="M4650 9450 l0 -1260 -1245 -2 -1245 -3 -3 -1773 -2 -1772 1248 0
                     1247 0 0 -1235 0 -1235 1775 0 1775 0 0 1235 0 1235 1250 0 1250 0 0 1775 0
-                    1775 -1250 0 -1250 0 0 1260 0 1260 -1775 0 -1775 0 0 -1260z"/>
-                    </g>
+                    1775 -1250 0 -1250 0 0 1260 0 1260 -1775 0 -1775 0 0 -1260z" />
+                        </g>
                     </svg>
 
-                    <span id="recovered" class = "child">0</span>
+                    <span id="recovered" class="child">0</span>
                 </div>
-                <div class ="base" id = "green_base">
+                <div class="base" id="green_base">
                     <span>Recovered</span>
-                </div>   
+                </div>
             </div>
-            
-        </div>
-        
-        <div id = "graphdiv" style = "height : 700px">
-            <canvas id = "chart" ></canvas>
+
         </div>
 
-        <div id = "tableContainer">
-            <div id = primary-text>
+        <div id="graphdiv" style="height : 700px">
+            <canvas id="chart"></canvas>
+        </div>
+
+        <div id="tableContainer">
+            <div id=primary-text>
                 <span>COVID-19 Countries</span>
             </div>
-            <div id = "tbldiv">
-                <table id = "statsTable">
+            <div id="tbldiv">
+                <table id="statsTable">
                     <tr>
-                    <th>Country</th>
-                    <th>Confirmed</th> 
-                    <th>Deaths</th>
-                    <th>Recovered</th>
+                        <th>Country</th>
+                        <th>Confirmed</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
                     </tr>
-                    
+
                 </table>
             </div>
         </div>
     </div>
-    <div id = "whatis" class = "anchor">
-        <div id = "container">
-            <div id = "whatisinfo" >
+    <div id="whatis" class="anchor">
+        <div id="container">
+            <div id="whatisinfo">
                 <div>
-                    <h1 style = "margin-top: 40px; text-align: center; font-size: 4vw; font-family: Quicksand; font-weight: bolder; height: 65px;">
+                    <h1
+                        style="margin-top: 40px; text-align: center; font-size: 4vw; font-family: Quicksand; font-weight: bolder; height: 65px;">
                         What is COVID-19?
                     </h1>
-                    <div id = infotext style="margin-top: 20px; text-align: center; font-size:1.3vw; color: rgb(0, 0, 0); font-family: Quicksand; display: grid; ">
-                        <span> Sources are listed in 
-                            <a href="#about" style = "color:black; font-style: oblique; font-weight: bolder;">About</a>  
+                    <div id=infotext
+                        style="margin-top: 20px; text-align: center; font-size:1.3vw; color: rgb(0, 0, 0); font-family: Quicksand; display: grid; ">
+                        <span> Sources are listed in
+                            <a href="#about" style="color:black; font-style: oblique; font-weight: bolder;">About</a>
                             section.
                         </span>
                     </div>
-    
+
                     <div class="tab">
-                        <button class="tablinks" onclick="openTab(event, 'Overview')" id = "default" >Overview</button>
+                        <button class="tablinks" onclick="openTab(event, 'Overview')" id="default">Overview</button>
                         <button class="tablinks" onclick="openTab(event, 'Prevention')">Prevention</button>
                         <button class="tablinks" onclick="openTab(event, 'Symptoms')">Symptoms</button>
-                        </div>
-                        
-                        <div id="Overview" class="tabcontent">
-                            <p>COVID-19 is an infectious respiratory illness caused by a recently discovered coronavirus. <br> 
-                                The majority of infected people may experience mild to moderate illness. <br>
-                                Older individuals, and those with medical problems are more likely to experience severe illness. <br>
-                                COVID-19 primarily spreads through respiratory fluid produced by sneezing or coughing. <br>
-                                <i>There are currently no cures or vaccines for COVID-19.</i> </p>
-                        </div>
-                        
-                        <div id="Prevention" class="tabcontent">
-                            <p>Wash your hands regularly with soap and water for at least 20 seconds. <br>
-                                Avoid touching your face with unwashed hands. <br>
-                                If exposed to the virus practice self-quarantine. <br>
-                                Avoid unnecessary travel and large groups of people. <br>
-                                Cover your nose and mouth while coughing or sneezing. </p> 
-                        </div>
-                        
-                        <div id="Symptoms" class="tabcontent">
-                            <p>Common Symptoms include: <i><b>fever, fatigue, dry cough</i></b> <br>
-                                Severe Symptoms include: <i><b>difficulty breathing, aches, sore throat</i></b>
-                            </p>
-                        </div>
-                        
-                        <script>
-                            document.getElementById("default").click()
-                            function openTab(evt, tabName) {
-                                var i, tabcontent, tablinks;
-                                tabcontent = document.getElementsByClassName("tabcontent");
-                                for (i = 0; i < tabcontent.length; i++) {
+                    </div>
+
+                    <div id="Overview" class="tabcontent">
+                        <p>COVID-19 is an infectious respiratory illness caused by a recently discovered coronavirus.
+                            <br>
+                            The majority of infected people may experience mild to moderate illness. <br>
+                            Older individuals, and those with medical problems are more likely to experience severe
+                            illness. <br>
+                            COVID-19 primarily spreads through respiratory fluid produced by sneezing or coughing. <br>
+                            <i>There are currently no cures or vaccines for COVID-19.</i> </p>
+                    </div>
+
+                    <div id="Prevention" class="tabcontent">
+                        <p>Wash your hands regularly with soap and water for at least 20 seconds. <br>
+                            Avoid touching your face with unwashed hands. <br>
+                            If exposed to the virus practice self-quarantine. <br>
+                            Avoid unnecessary travel and large groups of people. <br>
+                            Cover your nose and mouth while coughing or sneezing. </p>
+                    </div>
+
+                    <div id="Symptoms" class="tabcontent">
+                        <p>Common Symptoms include: <i><b>fever, fatigue, dry cough</i></b> <br>
+                            Severe Symptoms include: <i><b>difficulty breathing, aches, sore throat</i></b>
+                        </p>
+                    </div>
+
+                    <script>
+                        document.getElementById("default").click()
+
+                        function openTab(evt, tabName) {
+                            var i, tabcontent, tablinks;
+                            tabcontent = document.getElementsByClassName("tabcontent");
+                            for (i = 0; i < tabcontent.length; i++) {
                                 tabcontent[i].style.display = "none";
-                                }
-                                tablinks = document.getElementsByClassName("tablinks");
-                                for (i = 0; i < tablinks.length; i++) {
-                                tablinks[i].className = tablinks[i].className.replace(" active", "");
-                                }
-                                document.getElementById(tabName).style.display = "block";
-                                evt.currentTarget.className += " active";
                             }
-                      </script>
-                   
+                            tablinks = document.getElementsByClassName("tablinks");
+                            for (i = 0; i < tablinks.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                            }
+                            document.getElementById(tabName).style.display = "block";
+                            evt.currentTarget.className += " active";
+                        }
+                    </script>
+
                 </div>
-                
+
             </div>
-            
+
         </div>
     </div>
-    <div id = "about" class = "anchor">
-        <div id = "container">
-            <div id = "myinfo" >
-                <div id = "name-photo" style = "display: flex;">
+    <div id="about" class="anchor">
+        <div id="container">
+            <div id="myinfo">
+                <div id="name-photo" style="display: flex;">
                     <a href="https://github.com/rashadphil/corona-tracker" target="_blank">
-                        <img src="https://avatars2.githubusercontent.com/u/20783686?v=4" id = "imghover" width = 250 height = 250 style = "border-radius: 50%; margin-top: 80px; margin-left: 60px;">
+                        <img src="https://avatars2.githubusercontent.com/u/20783686?v=4" id="imghover" width=250
+                            height=250 style="border-radius: 50%; margin-top: 80px; margin-left: 60px;">
                     </a>
-                    <h1 style = "margin-top: 90px; margin-left: 50px; font-size: 5.5vw; font-family: Quicksand; font-weight: bolder; height: 100px">Rashad Philizaire</h1>
-                    <div id = infotext style="margin-top: 200px; margin-left: -43vw; font-size:1.8vw; color: rgb(121, 121, 121); font-family: Quicksand; display: grid; ">
+                    <h1
+                        style="margin-top: 90px; margin-left: 50px; font-size: 5.5vw; font-family: Quicksand; font-weight: bolder; height: 100px">
+                        Rashad Philizaire</h1>
+                    <div id=infotext
+                        style="margin-top: 200px; margin-left: -43vw; font-size:1.8vw; color: rgb(121, 121, 121); font-family: Quicksand; display: grid; ">
                         <span> Student at Thomas Jefferson High School For Science and Technology</span>
                         <span> Email me with ideas at philizairer@gmail.com </span>
                     </div>
                 </div>
-                
+
             </div>
-            
-            <div id = "abouttext">
-                <h1 style="color: maroon; font-size: 50px; text-align: center; padding-top: 25px; font-weight: bolder; font-family: Rubik;" >
+
+            <div id="abouttext">
+                <h1
+                    style="color: maroon; font-size: 50px; text-align: center; padding-top: 25px; font-weight: bolder; font-family: Rubik;">
                     Sources
                 </h1>
-                <div id = infotext style="margin-top: 30px; font-size: 30px; font-family: Quicksand; display: grid; text-align: center ">
-                    <a href = "https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target = "_blank" style = "color: black"> World Health Organization (WHO) </a>
-                    <a href = "https://coronavirus.jhu.edu/" target = "_blank" style = "color: black"> John Hopkins University (JHU)</a>
-                    <a href = "https://www.cdc.gov/coronavirus/2019-ncov/index.html" target = "_blank" style = "color: black"> Centers for Disease Control and Prevention (CDC) </a>
+                <div id=infotext
+                    style="margin-top: 30px; font-size: 30px; font-family: Quicksand; display: grid; text-align: center ">
+                    <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank"
+                        style="color: black"> World Health Organization (WHO) </a>
+                    <a href="https://coronavirus.jhu.edu/" target="_blank" style="color: black"> John Hopkins University
+                        (JHU)</a>
+                    <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank" style="color: black">
+                        Centers for Disease Control and Prevention (CDC) </a>
                 </div>
 
             </div>
@@ -239,20 +256,19 @@
     </div>
 
     <script>
-        
-        const api_url = "https://corona.lmao.ninja/v2/countries?sort=%7Bparameter%7D";
-        const latest_api = "https://corona.lmao.ninja/v2/all";
-        const historical_url = "https://corona.lmao.ninja/v2/historical";
+        const api_url = "https://disease.sh/v3/covid-19/countries?sort=cases";
+        const latest_api = "https://disease.sh/v3/covid-19/all";
+        const historical_url = "https://disease.sh/v3/covid-19/historical?lastdays=all";
         makeTable();
         makeGraph("global");
 
-        async function makeTable(){
-            var dataObj = await getData(true); 
+        async function makeTable() {
+            var dataObj = await getData(true);
             //only displaying first few countries
             dataObj = dataObj.slice(0, 16)
             let statsTable = document.getElementById('statsTable')
 
-            for (id in dataObj){
+            for (id in dataObj) {
 
                 country_name = dataObj[id].country
                 confirmed = dataObj[id].confirmed
@@ -263,10 +279,10 @@
                 const row = statsTable.insertRow();
 
                 const cell1 = row.insertCell(0);
-                cell1.innerHTML = "<img src= " + flag +  " width = '30' height = '20' > " + country_name 
+                cell1.innerHTML = "<img src= " + flag + " width = '30' height = '20' > " + country_name
 
                 //toLocaleString places commas appropriately
-                
+
                 const cell2 = row.insertCell(1);
                 cell2.innerHTML = confirmed.toLocaleString()
 
@@ -283,10 +299,10 @@
 
             }
         }
-        
+
         async function makeGraph(country) {
             var data = await getaxisvalues(country);
-            
+
             const ctx = document.getElementById('chart').getContext('2d');
 
             const myChart = new Chart(ctx, {
@@ -307,7 +323,7 @@
                         backgroundColor: 'rgba(105, 103, 103, 0.5)',
                         borderColor: 'rgb(105, 103, 103)',
                         borderWidth: 5,
-                    } ],
+                    }],
 
                 },
                 options: {
@@ -334,14 +350,14 @@
                         yAxes: [{
                             ticks: {
                                 // Place commas appropriately
-                                callback: function(value, index, values) {
+                                callback: function (value, index, values) {
                                     return value.toLocaleString();
                                 },
                                 fontSize: 15,
                                 fontColor: "black",
                                 fontFamily: "Rubik"
                             },
-                            scaleLabel : {
+                            scaleLabel: {
                                 display: true,
                                 labelString: "# of People",
                                 fontSize: 29,
@@ -350,13 +366,13 @@
 
                             }
                         }],
-                        xAxes : [{
+                        xAxes: [{
                             ticks: {
                                 fontSize: 15,
                                 fontColor: "black",
                                 fontFamily: "Rubik"
                             },
-                            scaleLabel : {
+                            scaleLabel: {
                                 display: true,
                                 labelString: "Dates",
                                 fontSize: 29,
@@ -364,36 +380,36 @@
                                 fontFamily: "Rubik"
 
                             },
-                            
+
                         }]
-                        
+
                     }
 
                 }
-            
+
             });
         }
 
-        async function getData(firstTime){
+        async function getData(firstTime) {
 
-            const response = await fetch(api_url, {cache: "reload"});
+            const response = await fetch(api_url, {
+                cache: "reload"
+            });
             const data = await response.json();
-            
+
             const latest_response = await fetch(latest_api);
             const latest_data = await latest_response.json();
 
             //start with global data
-            const dataObj = [
-                {
+            const dataObj = [{
                 country: "Global",
-                confirmed : latest_data.cases,
-                deaths : latest_data.deaths,
+                confirmed: latest_data.cases,
+                deaths: latest_data.deaths,
                 recovered: latest_data.recovered,
                 flag: "https://upload.wikimedia.org/wikipedia/commons/e/ef/International_Flag_of_Planet_Earth.svg"
-                }
-            ]
-            
-            if (firstTime){
+            }]
+
+            if (firstTime) {
                 var cHTML = document.getElementById('confirmed');
                 cHTML.innerHTML = latest_data.cases.toLocaleString();
 
@@ -403,20 +419,20 @@
                 var rHTML = document.getElementById('recovered');
                 rHTML.innerHTML = latest_data.recovered.toLocaleString();
             }
-            
-            var dropdown = document.getElementById("myDropdown") 
+
+            var dropdown = document.getElementById("myDropdown")
             //loop thru and store all data
-            for (index in data){
+            for (index in data) {
                 info = data[index];
                 country_name = info.country;
 
-                country_name = country_name.replace(/,.*/g,""); 
+                country_name = country_name.replace(/,.*/g, "");
 
                 cases_info = {
-                    confirmed : info.cases,
-                    deaths : info.deaths,
-                    recovered : info.recovered,
-                    flag : info.countryInfo.flag
+                    confirmed: info.cases,
+                    deaths: info.deaths,
+                    recovered: info.recovered,
+                    flag: info.countryInfo.flag
                 }
                 cases_info["country"] = country_name
                 dataObj.push(cases_info)
@@ -425,38 +441,47 @@
                 var b = document.createElement('BUTTON');
                 var linkText = document.createTextNode("");
                 b.appendChild(linkText);
-                
-                b.style = "background-color: white; color: black; width: 11vw; font-size: 1.2vw; border: none; font-family: Rubik; padding: 5px;"
+
+                b.style =
+                    "background-color: white; color: black; width: 11vw; font-size: 1.2vw; border: none; font-family: Rubik; padding: 5px;"
                 b.country = country_name;
                 b.cases_info = cases_info;
                 b.className = "countrybuttons"
                 b.flag = info.countryInfo.flag
-                b.addEventListener("click", function(){updateLatestForCountry(this.country, this.cases_info)})
-                b.addEventListener("click", function(){makeGraph(this.country)})
-                b.addEventListener("click", function(){
+                b.addEventListener("click", function () {
+                    updateLatestForCountry(this.country, this.cases_info)
+                })
+                b.addEventListener("click", function () {
+                    makeGraph(this.country)
+                })
+                b.addEventListener("click", function () {
                     dropdowntxt = document.getElementById("dropdowntext")
                     console.log(dropdowntxt)
-                    dropdowntxt.innerHTML = "<img src= " + this.flag + " width = '30' height = '20' > " + this.country; 
+                    dropdowntxt.innerHTML = "<img src= " + this.flag + " width = '30' height = '20' > " +
+                        this.country;
                 })
-                b.innerHTML = "<img src= " + info.countryInfo.flag + " width = '30' height = '20' > " + country_name;
+                b.innerHTML = "<img src= " + info.countryInfo.flag + " width = '30' height = '20' > " +
+                    country_name;
                 dropdown.appendChild(b);
-                
-            } 
+
+            }
             //sort data by confirmed cases
-            dataObj.sort(function(a, b){
+            dataObj.sort(function (a, b) {
                 return b.confirmed - a.confirmed
             })
             return dataObj
-            
-        }
-        
-        async function getHistoricalData(){
 
-            const response = await fetch(historical_url, {cache: "reload"});
+        }
+
+        async function getHistoricalData() {
+
+            const response = await fetch(historical_url, {
+                cache: "reload"
+            });
             const data = await response.json();
 
             date = new Date(Date.now()).toLocaleString().split(',')[0]
-            date = date.replace(/(?=....$)../g,""); 
+            date = date.replace(/(?=....$)../g, "");
 
             current_day_data = await getData(false);
 
@@ -465,39 +490,39 @@
             }
 
             const totalHistorical = {
-     
+
             }
 
-            for (index in data){
+            for (index in data) {
                 info = data[index]
                 country = info.country
                 timeline = info.timeline
                 cases = timeline.cases
                 deaths = timeline.deaths
-                
+
                 country_info = {
 
                 }
-                for (day in cases){
+                for (day in cases) {
 
                     //because duplicate countries with diff cities
-                    if (countryHistorical[country] === undefined){
+                    if (countryHistorical[country] === undefined) {
                         country_info[day] = {
                             cases: cases[day],
                             deaths: deaths[day]
                         }
-                    }else{
+                    } else {
                         country_info[day] = {
                             cases: countryHistorical[country][day].cases + cases[day],
                             deaths: countryHistorical[country][day].deaths + deaths[day]
                         }
                     }
-                    if (totalHistorical[day] === undefined){
+                    if (totalHistorical[day] === undefined) {
                         totalHistorical[day] = {
                             cases: cases[day],
                             deaths: deaths[day]
                         }
-                    }else{
+                    } else {
                         totalHistorical[day].cases += cases[day]
                         totalHistorical[day].deaths += deaths[day]
                     }
@@ -508,53 +533,62 @@
 
             var country_buttons = document.getElementsByClassName("countrybuttons")
 
-            
+
             // add current date to graph
             totalHistorical[date] = {
                 cases: current_day_data[0].confirmed,
                 deaths: current_day_data[0].deaths
             }
 
-            return {totalHistorical, countryHistorical}
+            return {
+                totalHistorical,
+                countryHistorical
+            }
         }
 
 
-        async function getaxisvalues(countryinput){
+        async function getaxisvalues(countryinput) {
             countryinput = countryinput.toLowerCase();
             historicalData = await getHistoricalData();
             totalHistorical = historicalData.totalHistorical;
             countryHistorical = historicalData.countryHistorical;
 
+            console.log(historicalData)
             var dataused = totalHistorical
-            if (countryinput != 'global'){
+            if (countryinput != 'global') {
                 dataused = countryHistorical[countryinput]
             }
-            
-            
+
+
             var xs = [];
             var cases_ys = [];
             var deaths_ys = [];
 
-            for (date in dataused){
+            for (date in dataused) {
                 xs.push(date)
                 cases_ys.push(dataused[date].cases)
                 deaths_ys.push(dataused[date].deaths)
             }
-             
+
+
             xs = lessData(xs)
             cases_ys = lessData(cases_ys)
             deaths_ys = lessData(deaths_ys)
 
-            return {xs, cases_ys, deaths_ys}
+            return {
+                xs,
+                cases_ys,
+                deaths_ys
+            }
         }
 
-        function lessData(array){
+        function lessData(array) {
             for (var i = 2; i <= array.length; i += 2)
                 array.splice(i, 1);
             return array
         }
-        
-        function updateLatestForCountry(country, cases_info){
+
+        function updateLatestForCountry(country, cases_info) {
 
             // updates boxes with country info
             var cHTML = document.getElementById('confirmed');
@@ -567,9 +601,11 @@
             rHTML.innerHTML = cases_info.recovered.toLocaleString();
 
         }
- 
 
-        window.onscroll = function() {stickyFunction()};
+
+        window.onscroll = function () {
+            stickyFunction()
+        };
 
         var navbar = document.getElementById("navbar");
 
@@ -583,6 +619,7 @@
             }
         }
     </script>
-    
+
 </body>
+
 </html>
