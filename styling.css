@@ -261,7 +261,7 @@ table {
 .home {
     background-color: rgb(255, 250, 240);
     padding: 16px;
-    height: 150vh;
+    height: 130vh;
 }
 
 .sticky+.home {
@@ -269,7 +269,7 @@ table {
 }
 
 #whatis {
-    height: 150vh;
+    height: 120vh;
     width: 100%;
     background-color: rgb(255, 250, 240);
 }
@@ -283,9 +283,8 @@ table {
 #container {
     background-color: rgb(255, 252, 248);
     /* overflow:hidden; */
-    margin-top: 50px;
-    margin-left: 70px;
-    margin-right: 70px;
+    margin-left: 10vw;
+    margin-right: 10vw;
     height: 900px;
     padding: 5px;
     border: 5px solid var(--maroon-color);

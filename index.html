@@ -177,7 +177,8 @@
                     </div>
 
                     <div id="Prevention" class="tabcontent">
-                        <p>Wash your hands regularly with soap and water for at least 20 seconds. <br>
+                        <p> <b>Wear a mask.</b> <br> Wash your hands regularly with soap and water for at least 20
+                            seconds. <br>
                             Avoid touching your face with unwashed hands. <br>
                             If exposed to the virus practice self-quarantine. <br>
                             Avoid unnecessary travel and large groups of people. <br>
@@ -263,7 +264,7 @@
         async function makeTable() {
             var dataObj = await getData(true);
             //only displaying first few countries
-            dataObj = dataObj.slice(0, 16)
+            dataObj = dataObj.slice(0, 14)
             let statsTable = document.getElementById('statsTable')
 
             for (id in dataObj) {
@@ -288,7 +289,11 @@
                 cell3.innerHTML = deaths.toLocaleString()
 
                 const cell4 = row.insertCell(3);
-                cell4.innerHTML = recovered.toLocaleString()
+                if (recovered.toLocaleString() == "0") {
+                    cell4.innerHTML = "N/A"
+                } else {
+                    cell4.innerHTML = recovered.toLocaleString()
+                }
 
                 cell1.id = "country"
                 cell2.id = "data";
@@ -393,7 +398,6 @@
                 cache: "reload"
             });
             const data = await response.json();
-
             const latest_response = await fetch(latest_api);
             const latest_data = await latest_response.json();
 
@@ -454,7 +458,7 @@
                 b.addEventListener("click", function () {
                     dropdowntxt = document.getElementById("dropdowntext")
                     dropdowntxt.innerHTML = "<img src= " + this.flag + " width = '30' height = '20' > " +
-                        this.country;
+                        this.country + "▼";
                 })
                 b.innerHTML = "<img src= " + info.countryInfo.flag + " width = '30' height = '20' > " +
                     country_name;
@@ -583,7 +587,7 @@
         }
 
         function updateLatestForCountry(country, cases_info) {
-
+            console.log(country)
             // updates boxes with country info
             var cHTML = document.getElementById('confirmed');
             cHTML.innerHTML = cases_info.confirmed.toLocaleString();
