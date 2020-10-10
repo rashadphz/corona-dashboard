@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 
-
 </head>
 
 <body id="full-back">
@@ -259,7 +258,7 @@
         const latest_api = "https://disease.sh/v3/covid-19/all";
         const historical_url = "https://disease.sh/v3/covid-19/historical?lastdays=all";
         makeTable();
-        makeGraph("global");
+        makeGraph("USA");
 
         async function makeTable() {
             var dataObj = await getData(true);
@@ -301,7 +300,6 @@
 
         async function makeGraph(country) {
             var data = await getaxisvalues(country);
-
             const ctx = document.getElementById('chart').getContext('2d');
 
             const myChart = new Chart(ctx, {
@@ -455,7 +453,6 @@
                 })
                 b.addEventListener("click", function () {
                     dropdowntxt = document.getElementById("dropdowntext")
-                    console.log(dropdowntxt)
                     dropdowntxt.innerHTML = "<img src= " + this.flag + " width = '30' height = '20' > " +
                         this.country;
                 })
@@ -552,12 +549,14 @@
             totalHistorical = historicalData.totalHistorical;
             countryHistorical = historicalData.countryHistorical;
 
-            console.log(historicalData)
+            console.log(typeof countryHistorical)
+
             var dataused = totalHistorical
             if (countryinput != 'global') {
-                dataused = countryHistorical[countryinput]
+                //case-insensitive
+                dataused = countryHistorical[Object.keys(countryHistorical).find(key => key.toLowerCase() ==
+                    countryinput)]
             }
-
 
             var xs = [];
             var cases_ys = [];
