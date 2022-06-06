@@ -7,5 +7,3 @@ Feel free to contribute, currently working on making maps and making the site mo
 ## Photos
 ![](https://github.com/rashadphil/corona-dashboard/blob/master/image1.png)
 
-![](https://github.com/rashadphil/corona-dashboard/blob/master/image2.png)
-
